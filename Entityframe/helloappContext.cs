@@ -25,7 +25,7 @@ namespace Entityframe
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlite("Data Source=C:\\Users\\opilane\\source\\repos\\Blinov_Tarpv20\\HelloApp\\HelloApp\\bin\\Debug\\net6.0\\helloapp.db");
+                optionsBuilder.UseSqlite("Data Source=C:\\Users\\User\\source\\repos\\Entityframe\\Entityframe\\bin\\Debug\\net6.0\\helloapp.db");
             }
         }
 

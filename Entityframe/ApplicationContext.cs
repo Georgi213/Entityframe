@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
 using Entityframe;
@@ -13,28 +15,17 @@ namespace Entityframe
 {
     public class ApplicationContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
-        public ApplicationContext()
-        {
-            Database.EnsureDeleted();
-            Database.EnsureCreated();
-        }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Userf>().HasKey(u => new { u.PassportSeria, u.PassportNumber });
-        }
+
+        public DbSet<User> Users { get; set; } = null!;
+        public DbSet<Company> Companies { get; set; } = null!;
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=efbasicsappdb;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=helloappdb;Trusted_Connection=True;");
         }
     }
-    public class Userf
-    {
-        public string? PassportNumber { get; set; }
-        public string? PassportSeria { get; set; }
 
-        public string? Name { get; set; }
-    }
+
 
 
 
